@@ -1,2 +1,6 @@
 # Python Projects
-This repository contains different projects in python by me
+This repository contains different python projects by me
+# 
+For now:
+1. TicTacToe
+2. Rock Paper Scissors
