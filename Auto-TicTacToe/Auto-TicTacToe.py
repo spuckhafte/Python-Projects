@@ -101,6 +101,7 @@ while True:
         
     #final location of 'o' (system)
     v[oLoc] = 'o'
+    locations.pop(lp.indexOf(locations, oLoc))
 
     board = f'''
     |{v[1]}|{v[2]}|{v[3]}|
