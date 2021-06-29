@@ -1,3 +1,2 @@
-# TicTacToe
-Human Vs Human ; Computer Vs Human.
-:Download the folder not the file as each folder contains required module:
+# Python Projects
+This repository contains different projects in python by me
