@@ -1,5 +1,4 @@
 import list_package as lp
-import random
 import time
 import system_position
 
