@@ -3,4 +3,4 @@ You are the one who will start the game, version with the freedom of choosing wh
 its there on github but is unstable and buggy
 
 # Update:
-Renewd Version is ready and out in Github
+Renewed Version is ready and out in Github
