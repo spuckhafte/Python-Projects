@@ -1,1 +1,1 @@
-# Updated version of TicTacToe with the freedom of choosing who starts first.
+# Updated version of Auto-TicTacToe with the freedom of choosing who starts first.
