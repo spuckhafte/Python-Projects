@@ -56,7 +56,11 @@ while rounds<5:
 	if move_player == "p" and move_system == "s":
 		print(f"\nSystem wins over Player - Rounds Left: {5-rounds}")
 		score_system += 1
-		print(f'{visuals[move_player]} vs {visuals[move_system]}')
+		print(f'{visuals[move_player]} vs {visuals[move_system]}') 
+		
+	if move_player not in system_choice:
+		rounds -= 1 
+		continue
 
 if score_system > score_player:
 	print("\n----------------")
