@@ -12,7 +12,6 @@ visuals = {
 	"s": "✂️",
 }
 
-
 rounds = 0
 score_player = 0
 score_system = 0 
@@ -74,14 +73,3 @@ else:
 	print("\n----------------")
 	print("\nIts a Draw !")
 	print(f"Score: {score_player}/{score_system}")
-
-
-
-
-
-
-
-
-
-
-
