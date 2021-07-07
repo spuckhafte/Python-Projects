@@ -194,10 +194,13 @@ def system_logic_medium_second(v, options, xLoc, oLoc, i, locations):
 
 	return oLoc
 
-def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
+def system_logic_hard_second(v, options, xLoc, oLoc, i, locations):
 	#logics for special moves leading towards tie
 	if i==1:
-		oLoc = 5
+		if xLoc == 5:
+			oLoc = random.choice([7,3])
+		else:
+			oLoc = 5
 
 	if i==2:
 		while True:
@@ -227,7 +230,7 @@ def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
 
 	return oLoc
 
-def system_logic_hard_second(v, options, xLoc, oLoc, i, locations):
+def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
 	#logics for special moves leading towards tie
 	if i==1:
 		oLoc = random.choice([5, 1, 3, 7, 9])
