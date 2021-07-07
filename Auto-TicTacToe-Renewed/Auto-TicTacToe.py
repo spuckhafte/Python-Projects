@@ -15,6 +15,8 @@ v = {
     9: " "
 }
 
+winning_rows = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
+
 #board showing allocation of different grids to certain number
 board_chart = '''
 |1|2|3|
@@ -98,7 +100,7 @@ if play_first == "x":
 
         # Function for getting the most approriate position for system (according to the level selected)
 
-        get = system_position.win(v, oLoc, xLoc, options, locations)
+        get = system_position.win(v, oLoc, options, level, winning_rows)
         if get != 0:
             oLoc = get
 
@@ -146,7 +148,7 @@ if play_first == "o":
 
         # Function for getting the most approriate position for system (according to the level selected)
         
-        get = system_position.win(v, oLoc, xLoc, options, locations)
+        get = system_position.win(v, oLoc, options, level, winning_rows)
         if get != 0:
             oLoc = get
 
