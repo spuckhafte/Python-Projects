@@ -1,137 +1,312 @@
-# Author: Rakshit Joshi
-# Date of Creation: 26/06/2021
-# Date of Last Modification: 27/06/2021
+import random
 
-#returns reveresed value of the list provided
-def reverse_list(lstVariable):
-	try:
-		new_reversed_list = []
-		for list_element in lstVariable:
-			new_reversed_list.insert(0,list_element)
-		return new_reversed_list
-	except:
-		print("You can only reverse a 'list' with this function.")
+def win(v, oLoc, xLoc, options, locations):
+	if v[1]==v[2]=="o" and v[3] not in options :
+		oLoc = 3
+	elif v[1]==v[3]=="o" and v[2] not in options :
+		oLoc = 2
+	elif v[2]==v[3]=="o" and v[1] not in options :
+		oLoc = 1
 
-#modifies your own list by reversing it elements
-def reverse_list_mod(lstVariable):
-	try:
-		element_removing_variable = 1
-		for list_element in lstVariable:
-			lstVariable.insert(0,list_element)
-			lstVariable.pop(element_removing_variable)
-			element_removing_variable = element_removing_variable+1
-	except:
-		print("You can only reverse a 'list' with this function.")
+	elif v[4]==v[5]=="o" and v[6] not in options :
+		oLoc = 6
+	elif v[4]==v[6]=="o" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[6]=="o" and v[4] not in options :
+		oLoc = 4
 
-#returns reveresed value of the string provided
-def reverse_str(strVariable):
-	try:
-		strVariable+"c"
-		list_of_string_char = list(strVariable)
-		list_of_string_char
-		element_removing_variable = 1
-		for list_element in list_of_string_char:
-			list_of_string_char.insert(0,list_element)
-			list_of_string_char.pop(element_removing_variable)
-			element_removing_variable=element_removing_variable+1
-		reversed_string = ''.join(list_of_string_char)
-		return reversed_string
-	except:
-		print("You can only reverse a 'string' with this function.")
+	elif v[7]==v[8]=="o" and v[9] not in options :
+		oLoc = 9
+	elif v[7]==v[9]=="o" and v[8] not in options :
+		oLoc = 8
+	elif v[8]==v[9]=="o" and v[7] not in options :
+		oLoc = 7
 
-#returns you a list of first 'n' even numbers
-def n_even(first_n_even_numbers):
-	try:
-		even_list = []
-		limit_of_range_of_even_numbers = first_n_even_numbers*2
-		for even_number in range(0, limit_of_range_of_even_numbers, 2):
-			even_list.append(even_number)
-		return even_list
-	except:
-		print("You can only input an 'Integer'.")
-		
-#return you a list of first 'n' odd numbers
-def n_odd(first_n_odd_numbers):
-	try:
-		odd_list = []
-		limit_of_range_of_odd_numbers = first_n_odd_numbers*2
-		for odd_number in range(1, limit_of_range_of_odd_numbers, 2):
-			odd_list.append(odd_number)
-		return odd_list
-	except:
-		print("You can only input an 'Integer'.")
+	elif v[1]==v[4]=="o" and v[7] not in options :
+		oLoc = 7
+	elif v[1]==v[7]=="o" and v[4] not in options :
+		oLoc = 4
+	elif v[4]==v[7]=="o" and v[1] not in options :
+		oLoc = 1
 
-#returns converted 'string type list' from 'integer type list':
-def lst_intTOstr(intList):
-	new_strList = []
-	try:
-		for intElements in intList:
-			intElements+1-1
-			new_strList.append(str(intElements))
-		return new_strList
-	except:
-		print("You can only enter List with 'int' type elements.")
+	elif v[2]==v[5]=="o" and v[8] not in options :
+		oLoc = 8
+	elif v[2]==v[8]=="o" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[8]=="o" and v[2] not in options :
+		oLoc = 2
 
-#returns converted 'integer type list' from 'string type list':
-def lst_strTOint(strList):
-	new_intList = []
-	try:
-		for strElements in strList:
-			strElements+"c"
-			new_intList.append(int(strElements))
-		return new_intList
-	except:
-		print("You can only enter List with 'str' type elements.")
+	elif v[3]==v[6]=="o" and v[9] not in options :
+		oLoc = 9
+	elif v[3]==v[9]=="o" and v[6] not in options :
+		oLoc = 6
+	elif v[6]==v[9]=="o" and v[3] not in options :
+		oLoc = 3
 
-#returns edited (respected elements get deleted) list
-def del_from(lstVariable, starting_index, total_elements, direction):
-	try:
-		if starting_index-total_elements>=-1:
-			if direction == 1:
-				new_deleted_element_list = []
-				while total_elements > 0:
-					temp_var = lstVariable.pop(starting_index)
-					new_deleted_element_list.append(temp_var)
-					total_elements = total_elements-1
-				return new_deleted_element_list
-			if direction == -1:
-				new_deleted_element_list = []
-				deleting_index = (starting_index-total_elements)+1
-				while total_elements > 0:
-					temp_var = lstVariable.pop(deleting_index)
-					new_deleted_element_list.append(temp_var)
-					total_elements = total_elements-1
-				return new_deleted_element_list
+	elif v[1]==v[5]=="o" and v[9] not in options :
+		oLoc = 9
+	elif v[1]==v[9]=="o" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[9]=="o" and v[1] not in options :
+		oLoc = 1
+
+	elif v[3]==v[5]=="o" and v[7] not in options :
+		oLoc = 7
+	elif v[3]==v[7]=="o" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[7]=="o" and v[3] not in options :
+		oLoc = 3
+
+	#logics for continuing the game by breaking the triplets of player if possible
+	elif v[1]==v[2]=="x" and v[3] not in options :
+		oLoc = 3
+	elif v[1]==v[3]=="x" and v[2] not in options :
+		oLoc = 2
+	elif v[2]==v[3]=="x" and v[1] not in options :
+		oLoc = 1
+
+	elif v[4]==v[5]=="x" and v[6] not in options :
+		oLoc = 6
+	elif v[4]==v[6]=="x" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[6]=="x" and v[4] not in options :
+		oLoc = 4
+
+	elif v[7]==v[8]=="x" and v[9] not in options :
+		oLoc = 9
+	elif v[7]==v[9]=="x" and v[8] not in options :
+		oLoc = 8
+	elif v[8]==v[9]=="x" and v[7] not in options :
+		oLoc = 7
+
+	elif v[1]==v[4]=="x" and v[7] not in options :
+		oLoc = 7
+	elif v[1]==v[7]=="x" and v[4] not in options :
+		oLoc = 4
+	elif v[4]==v[7]=="x" and v[1] not in options :
+		oLoc = 1
+
+	elif v[2]==v[5]=="x" and v[8] not in options :
+		oLoc = 8
+	elif v[2]==v[8]=="x" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[8]=="x" and v[2] not in options :
+		oLoc = 2
+
+	elif v[3]==v[6]=="x" and v[9] not in options :
+		oLoc = 9
+	elif v[3]==v[9]=="x" and v[6] not in options :
+		oLoc = 6
+	elif v[6]==v[9]=="x" and v[3] not in options :
+		oLoc = 3
+
+	elif v[1]==v[5]=="x" and v[9] not in options :
+		oLoc = 9
+	elif v[1]==v[9]=="x" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[9]=="x" and v[1] not in options :
+		oLoc = 1
+
+	elif v[3]==v[5]=="x" and v[7] not in options :
+		oLoc = 7
+	elif v[3]==v[7]=="x" and v[5] not in options :
+		oLoc = 5
+	elif v[5]==v[7]=="x" and v[3] not in options :
+		oLoc = 3
+	else:
+		pass
+
+	return oLoc
+
+def system_logic_easy(v, options, xLoc, oLoc, i, locations):
+	#logic for random move as the game is neutral
+	oLoc = random.choice(locations)
+	pass
+
+	#logic for double checking if the position of 'o' overlaps occupied grid
+	if v[oLoc] == "o" or v[oLoc] == "x":
+		oLoc = random.choice(locations)
+	else:
+		pass
+
+	return oLoc
+
+def system_logic_medium_first(v, options, xLoc, oLoc, i, locations):
+	if i==1:
+		oLoc = random.choice([5, 1, 3, 7, 9])
+
+	if i==2:
+		if v[5] == "o":
+			while True:
+				system_case_ = [1,3,7,9]
+				oLoc = random.choice(system_case_)
+				if v[oLoc]=="x":
+					continue
+				else:
+					break
+
 		else:
-			print("Total elements excceed the list.")
-	except:
-		print("Wrong Parameters.")
+			while True:
+				if v[1]=="o" or v[3]=="o" or v[7]=="o" or v[9]=="o":
 
-#returns edited (changing index of an element) list
-def replace(target_list, target_index, new_index):
-	new_edited_list = []
-	try:
-		target_element = target_list.pop(target_index)
-		new_edited_list = target_list
-		new_edited_list.insert(new_index, target_element)
-		return new_edited_list
-	except:
-		print("Wrong Parameters.")
+					if v[1]=="o" or v[9]=="o":
+						oLoc = random.choice([3,7])
+						if v[oLoc]=="x":
+							continue
+						else:
+							break
 
-#returns the index of an element of a list
-def indexOf(target_list, target_element):
-	try:
-		index = 0
-		for temp_var in target_list:
-			if temp_var != target_element and index<len(target_list)-1:
-				index = index+1
-				continue
-			elif temp_var != target_element and index<=len(target_list):
-				print("The element does not belong to the list.")
-				index = (index-index)-1
-				break
+					if v[3]=="o" or v[7]=="o":
+						oLoc = random.choice([1,9])
+						if v[oLoc]=="x":
+							continue
+						else:
+							break
+		
+	#logic for random move as the game is neutral
+	if i!=1 and i!=2:
+		oLoc = random.choice(locations)
+		pass
+
+	return oLoc
+
+def system_logic_medium_second(v, options, xLoc, oLoc, i, locations):
+	#logics for special moves leading towards tie
+	if i==2:
+		while True:
+			system_case_ = [2,8,4,6]
+			oLoc = random.choice(system_case_)
+			if v[oLoc] not in options:
+				break 
 			else:
+				continue
+	
+	#logic for random move as the game is neutral
+	if i!=2:
+		oLoc = random.choice(locations)
+		pass
+
+	#logic for double checking if the position of 'o' overlaps occupied grid
+	if v[oLoc] == "o" or v[oLoc] == "x":
+		oLoc = random.choice(locations)
+	else:
+		pass
+
+	return oLoc
+
+def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
+	#logics for special moves leading towards tie
+	if i==1:
+		oLoc = 5
+
+	if i==2:
+		while True:
+			if v[7] == "o" or v[3] == "o" :
+				_system_case_ = [1,9]
+				oLoc = random.choice(_system_case_)
 				break
-		return index
-	except:
-	 	print("Wrong Parameters.")
+
+			else:
+				system_case_ = [2,8,4,6]
+				oLoc = random.choice(system_case_)
+				if v[oLoc] not in options:
+					break 
+				else:
+					continue
+		
+	#logic for random move as the game is neutral
+	if i!=1 and i!=2:
+		oLoc = random.choice(locations)
+		pass
+
+	#logic for double checking if the position of 'o' overlaps occupied grid
+	if v[oLoc] == "o" or v[oLoc] == "x":
+		oLoc = random.choice(locations)
+	else:
+		pass
+
+	return oLoc
+
+def system_logic_hard_second(v, options, xLoc, oLoc, i, locations):
+	#logics for special moves leading towards tie
+	if i==1:
+		oLoc = random.choice([5, 1, 3, 7, 9])
+
+	if i==2:
+		if v[5] == "o":
+			while True:
+				system_case_ = [1,3,7,9]
+				oLoc = random.choice(system_case_)
+				if v[oLoc]=="x":
+					continue
+				else:
+					break
+
+		else:
+			while True:
+				if v[1]=="o" or v[3]=="o" or v[7]=="o" or v[9]=="o":
+
+					if v[1]=="o" or v[9]=="o":
+						oLoc = random.choice([3,7])
+						if v[oLoc]=="x":
+							continue
+						else:
+							break
+
+					if v[3]=="o" or v[7]=="o":
+						oLoc = random.choice([1,9])
+						if v[oLoc]=="x":
+							continue
+						else:
+							break
+
+	if i==3:
+		if v[5] == "o":
+			while True:
+				if v[1]=="o" or v[9] == "o":
+					oLoc = random.choice([3,7])
+					if v[oLoc]=="x":
+							continue
+					else:
+						break
+
+
+				if v[3]=="o" or v[7] == "o":
+					oLoc = random.choice([1,9])
+					if v[oLoc]=="x":
+							continue
+					else:
+						break
+		else:
+			while True:
+				if v[1]==v[3]=="o":
+					oLoc = random.choice([7,9])
+					if v[oLoc]=="x" or v[oLoc] == "o":
+						continue
+					else:
+						break
+				if v[3]==v[9]=="o":
+					oLoc = random.choice([1,7])
+					if v[oLoc]=="x" or v[oLoc] == "o":
+						continue
+					else:
+						break
+				if v[9]==v[7]=="o":
+					oLoc = random.choice([1,3])
+					if v[oLoc]=="x" or v[oLoc] == "o":
+						continue
+					else:
+						break
+				if v[7]==v[1]=="o":
+					oLoc = random.choice([3,9])
+					if v[oLoc]=="x":
+						continue
+					else:
+						break
+	
+	#logic for random move as the game is neutral
+	if i!=1 and i!=2 and i!=3:
+		oLoc = random.choice(locations)
+		pass
+
+	return oLoc
