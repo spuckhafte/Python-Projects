@@ -1,5 +1,6 @@
 import time
 import random
+
 print("\nROCK(R) PAPER(P) SCISSORS(S)")
 print("Select your choice")
 print("\n5 Rounds\n")
@@ -65,11 +66,7 @@ if score_system > score_player:
 	print("\n----------------")
 	print("\nComputer Wins")
 	print(f"Score: {score_player}/{score_system}")
-elif score_player > score_system:
-	print("\n----------------")
-	print("\nPlayer Wins")
-	print(f"Score: {score_player}/{score_system}")
 else:
 	print("\n----------------")
-	print("\nIts a Draw !")
+	print("\nPlayer Wins")
 	print(f"Score: {score_player}/{score_system}")
