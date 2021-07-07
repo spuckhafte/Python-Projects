@@ -97,12 +97,18 @@ if play_first == "x":
         oLoc=0
 
         # Function for getting the most approriate position for system (according to the level selected)
-        if level == "easy" or level == "e":
-            oLoc = system_position.system_logic_easy(v, options, xLoc, oLoc, i, locations)
-        if level == "medium" or level == "m":
-            oLoc = system_position.system_logic_2medium(v, options, xLoc, oLoc, i, locations)
-        if level == "hard" or level == "h":
-            oLoc = system_position.system_logic_2hard(v, options, xLoc, oLoc, i, locations)
+
+        get = system_position.win(v, oLoc, xLoc, options, locations)
+        if get != 0:
+            oLoc = get
+
+        else:
+            if level == "easy" or level == "e":
+                oLoc = system_position.system_logic_easy(v, options, xLoc, oLoc, i, locations)
+            if level == "medium" or level == "m":
+                oLoc = system_position.system_logic_medium_second(v, options, xLoc, oLoc, i, locations)
+            if level == "hard" or level == "h":
+                oLoc = system_position.system_logic_hard_second(v, options, xLoc, oLoc, i, locations)
             
         #final location of 'o' (system)
         v[oLoc] = 'o'
@@ -137,14 +143,21 @@ if play_first == "o":
 
         oLoc=0
 
+
         # Function for getting the most approriate position for system (according to the level selected)
-        if level == "easy" or level == "e":
-            oLoc = system_position.system_logic_easy(v, options, xLoc, oLoc, i, locations)
-        if level == "medium" or level == "m":
-            oLoc = system_position.system_logic_1medium(v, options, xLoc, oLoc, i, locations)
-        if level == "hard" or level == "h":
-            oLoc = system_position.system_logic_1hard(v, options, xLoc, oLoc, i, locations)
-            
+        
+        get = system_position.win(v, oLoc, xLoc, options, locations)
+        if get != 0:
+            oLoc = get
+
+        else:
+            if level == "easy" or level == "e":
+                oLoc = system_position.system_logic_easy(v, options, xLoc, oLoc, i, locations)
+            if level == "medium" or level == "m":
+                oLoc = system_position.system_logic_medium_first(v, options, xLoc, oLoc, i, locations)
+            if level == "hard" or level == "h":
+                oLoc = system_position.system_logic_hard_first(v, options, xLoc, oLoc, i, locations)
+
         #final location of 'o' (system)
         v[oLoc] = 'o'
         locations.pop(lp.indexOf(locations, oLoc))
