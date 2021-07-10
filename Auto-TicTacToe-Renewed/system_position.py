@@ -211,5 +211,9 @@ def check_win(v, winning_rows2):
                 k = row[2]
                 if v[i]==v[j]==v[k]=="o":
                         return 0
+			break
+		elif v[i]==v[j]==v[k]=="x":
+                        return 1
+			break
                 else:
                         continue
