@@ -39,18 +39,10 @@ def win(v, oLoc, options, level, winning_rows):
 
 	return oLoc
 
-
 def system_logic_easy(v, options, xLoc, oLoc, i, locations):
 	#logic for random move as the game is neutral
 	oLoc = random.choice(locations)
 	pass
-
-	#logic for double checking if the position of 'o' overlaps occupied grid
-	if v[oLoc] == "o" or v[oLoc] == "x":
-		oLoc = random.choice(locations)
-	else:
-		pass
-
 	return oLoc
 
 def system_logic_medium_first(v, options, xLoc, oLoc, i, locations):
@@ -69,21 +61,19 @@ def system_logic_medium_first(v, options, xLoc, oLoc, i, locations):
 
 		else:
 			while True:
-				if v[1]=="o" or v[3]=="o" or v[7]=="o" or v[9]=="o":
+				if v[1]=="o" or v[9]=="o":
+					oLoc = random.choice([3,7])
+					if v[oLoc]=="x":
+						continue
+					else:
+						break
 
-					if v[1]=="o" or v[9]=="o":
-						oLoc = random.choice([3,7])
-						if v[oLoc]=="x":
-							continue
-						else:
-							break
-
-					if v[3]=="o" or v[7]=="o":
-						oLoc = random.choice([1,9])
-						if v[oLoc]=="x":
-							continue
-						else:
-							break
+				if v[3]=="o" or v[7]=="o":
+					oLoc = random.choice([1,9])
+					if v[oLoc]=="x":
+						continue
+					else:
+						break
 		
 	#logic for random move as the game is neutral
 	if i!=1 and i!=2:
@@ -106,12 +96,6 @@ def system_logic_medium_second(v, options, xLoc, oLoc, i, locations):
 	#logic for random move as the game is neutral
 	if i!=2:
 		oLoc = random.choice(locations)
-		pass
-
-	#logic for double checking if the position of 'o' overlaps occupied grid
-	if v[oLoc] == "o" or v[oLoc] == "x":
-		oLoc = random.choice(locations)
-	else:
 		pass
 
 	return oLoc
@@ -143,13 +127,7 @@ def system_logic_hard_second(v, options, xLoc, oLoc, i, locations):
 	if i!=1 and i!=2:
 		oLoc = random.choice(locations)
 		pass
-
-	#logic for double checking if the position of 'o' overlaps occupied grid
-	if v[oLoc] == "o" or v[oLoc] == "x":
-		oLoc = random.choice(locations)
-	else:
-		pass
-
+	
 	return oLoc
 
 def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
@@ -169,21 +147,19 @@ def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
 
 		else:
 			while True:
-				if v[1]=="o" or v[3]=="o" or v[7]=="o" or v[9]=="o":
+				if v[1]=="o" or v[9]=="o":
+					oLoc = random.choice([3,7])
+					if v[oLoc]=="x":
+						continue
+					else:
+						break
 
-					if v[1]=="o" or v[9]=="o":
-						oLoc = random.choice([3,7])
-						if v[oLoc]=="x":
-							continue
-						else:
-							break
-
-					if v[3]=="o" or v[7]=="o":
-						oLoc = random.choice([1,9])
-						if v[oLoc]=="x":
-							continue
-						else:
-							break
+				if v[3]=="o" or v[7]=="o":
+					oLoc = random.choice([1,9])
+					if v[oLoc]=="x":
+						continue
+					else:
+						break
 
 	if i==3:
 		if v[5] == "o":
@@ -206,24 +182,24 @@ def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
 			rows = [1,3,7,9]
 			cases = [[1,3], [3,9], [9,7], [7,1]]
 			for case in cases:
-			    op1 = case.pop()
-			    op2 = case.pop()
-			    if v[op1]==v[op2]=="o":
-				rows.remove(op1)
-				rows.remove(op2)
-				oLoc = random.choice(rows)
-				rows.remove(oLoc)
-				if oLoc not in locations:
-				    oLoc = rows.pop()
-				    break
-				else:
-				    break
-			    else:
-				continue
+                                op1 = case.pop()
+                                op2 = case.pop()
+                                if v[op1]==v[op2]=="o":
+                                        rows.remove(op1)
+                                        rows.remove(op2)
+                                        oLoc = random.choice(rows)
+                                        rows.remove(oLoc)
+                                        if oLoc not in locations:
+                                                oLoc = rows.pop()
+                                                break
+                                        else:
+                                                break
+                                else:
+                                        continue
 	
 	#logic for random move as the game is neutral
 	if i!=1 and i!=2 and i!=3:
-		oLoc = random.choice(locations)
-		pass
+                oLoc = random.choice(locations)
+                pass
 
 	return oLoc
