@@ -1,5 +1,6 @@
 import time
 import system_position
+from system_positon import check_win
 
 #values of the different positions
 v = {
@@ -15,6 +16,7 @@ v = {
 }
 
 winning_rows = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
+winning_rows2 = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
 
 #board showing allocation of different grids to certain number
 board_chart = '''
@@ -81,7 +83,7 @@ if play_first == "x":
         print(board)
 
         #logic if there is a 'win' for x or a 'tie' or 'the game is still on'
-        if(v[1]==v[2]==v[3]=="x" or v[4]==v[5]==v[6]=="x" or v[7]==v[8]==v[9]=="x" or v[1]==v[4]==v[7]=="x" or v[2]==v[5]==v[8]=="x" or v[3]==v[6]==v[9]=="x" or v[1]==v[5]==v[9]=="x" or v[3]==v[5]==v[7]=="x"):
+        if check_win(v, winning_rows2)==1:
             time.sleep(0.5)
             print("\nPlayer WINS !")
             time.sleep(2)
@@ -128,7 +130,7 @@ if play_first == "x":
         print(board)
 
         #logic to check if there is a 'win' or 'the game is still going on' for system
-        if(v[1]==v[2]==v[3]=="o" or v[4]==v[5]==v[6]=="o" or v[7]==v[8]==v[9]=="o" or v[1]==v[4]==v[7]=="o" or v[2]==v[5]==v[8]=="o" or v[3]==v[6]==v[9]=="o" or v[1]==v[5]==v[9]=="o" or v[3]==v[5]==v[7]=="o"):
+        if check_win(v, winning_rows2)==0:
             time.sleep(0.5)
             print("\nComputer WINS !")
             time.sleep(2)
@@ -176,7 +178,7 @@ if play_first == "o":
         print(board)
 
         #logic to check if there is a 'win' or 'the game is still going on' for system
-        if(v[1]==v[2]==v[3]=="o" or v[4]==v[5]==v[6]=="o" or v[7]==v[8]==v[9]=="o" or v[1]==v[4]==v[7]=="o" or v[2]==v[5]==v[8]=="o" or v[3]==v[6]==v[9]=="o" or v[1]==v[5]==v[9]=="o" or v[3]==v[5]==v[7]=="o"):
+        if check_win(v, winning_rows2)==0:
             time.sleep(0.5)
             print("\nComputer WINS !")
             time.sleep(2)
@@ -219,7 +221,7 @@ if play_first == "o":
         print(board)
 
         #logic if there is a 'win' for x or a 'tie' or 'the game is still on'
-        if(v[1]==v[2]==v[3]=="x" or v[4]==v[5]==v[6]=="x" or v[7]==v[8]==v[9]=="x" or v[1]==v[4]==v[7]=="x" or v[2]==v[5]==v[8]=="x" or v[3]==v[6]==v[9]=="x" or v[1]==v[5]==v[9]=="x" or v[3]==v[5]==v[7]=="x"):
+        if check_win(v, winning_rows2)==1:
             time.sleep(0.5)
             print("\nPlayer WINS !")
             time.sleep(2)
