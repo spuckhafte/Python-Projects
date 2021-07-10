@@ -203,3 +203,13 @@ def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
                 pass
 
 	return oLoc
+
+def check_win(v, winning_rows2):
+	for row in winning_rows2:
+                i = row[0]
+                j = row[1]
+                k = row[2]
+                if v[i]==v[j]==v[k]=="o":
+                        return 0
+                else:
+                        continue
