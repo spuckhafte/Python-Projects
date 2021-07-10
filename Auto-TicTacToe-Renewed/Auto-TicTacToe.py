@@ -161,7 +161,7 @@ if play_first == "o":
 
         #final location of 'o' (system)
         v[oLoc] = 'o'
-        locations.pop(lp.indexOf(locations, oLoc))
+        locations.remove(oLoc)
 
         board = f'''
         |{v[1]}|{v[2]}|{v[3]}|
@@ -208,7 +208,7 @@ if play_first == "o":
         v[xLoc] = 'x'
 
         #this location gets removed from that list as it has been used
-        locations.pop(lp.indexOf(locations, xLoc))
+        locations.remove(xLoc)
 
         #board showing x's position
         board = f'''
