@@ -203,31 +203,23 @@ def system_logic_hard_first(v, options, xLoc, oLoc, i, locations):
 					else:
 						break
 		else:
-			while True:
-				if v[1]==v[3]=="o":
-					oLoc = random.choice([7,9])
-					if v[oLoc]=="x" or v[oLoc] == "o":
-						continue
-					else:
-						break
-				if v[3]==v[9]=="o":
-					oLoc = random.choice([1,7])
-					if v[oLoc]=="x" or v[oLoc] == "o":
-						continue
-					else:
-						break
-				if v[9]==v[7]=="o":
-					oLoc = random.choice([1,3])
-					if v[oLoc]=="x" or v[oLoc] == "o":
-						continue
-					else:
-						break
-				if v[7]==v[1]=="o":
-					oLoc = random.choice([3,9])
-					if v[oLoc]=="x":
-						continue
-					else:
-						break
+			rows = [1,3,7,9]
+			cases = [[1,3], [3,9], [9,7], [7,1]]
+			for case in cases:
+			    op1 = case.pop()
+			    op2 = case.pop()
+			    if v[op1]==v[op2]=="o":
+				rows.remove(op1)
+				rows.remove(op2)
+				oLoc = random.choice(rows)
+				rows.remove(oLoc)
+				if oLoc not in locations:
+				    oLoc = rows.pop()
+				    break
+				else:
+				    break
+			    else:
+				continue
 	
 	#logic for random move as the game is neutral
 	if i!=1 and i!=2 and i!=3:
