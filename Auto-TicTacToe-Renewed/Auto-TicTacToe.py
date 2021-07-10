@@ -1,4 +1,3 @@
-import list_package as lp
 import time
 import system_position
 
@@ -71,7 +70,7 @@ if play_first == "x":
         v[xLoc] = 'x'
 
         #this location gets removed from that list as it has been used
-        locations.pop(lp.indexOf(locations, xLoc))
+        locations.remove(xLoc)
 
         #board showing x's position
         board = f'''
@@ -114,7 +113,7 @@ if play_first == "x":
             
         #final location of 'o' (system)
         v[oLoc] = 'o'
-        locations.pop(lp.indexOf(locations, oLoc))
+        locations.remove(oLoc)
 
         board = f'''
         |{v[1]}|{v[2]}|{v[3]}|
