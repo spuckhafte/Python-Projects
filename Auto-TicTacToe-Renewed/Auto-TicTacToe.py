@@ -1,6 +1,6 @@
 import time
 import system_position
-from system_positon import check_win
+from system_position import check_win
 
 #values of the different positions
 v = {
