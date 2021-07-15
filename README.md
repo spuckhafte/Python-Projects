@@ -1,5 +1,5 @@
 # Python Projects
-This repository contains different python projects by me
+This repository contains different python projects
 # 
 For now:
 1. TicTacToe
