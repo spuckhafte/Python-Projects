@@ -1,4 +1,3 @@
-import list_package as lp
 import time
 v = {
     1: " ",
@@ -44,7 +43,7 @@ while True:
 			continue
 
 	v[xLoc] = 'x'
-	locations.pop(lp.indexOf(locations, xLoc))
+	locations.remove(xLoc)
 
 	board = f'''
 	|{v[1]}|{v[2]}|{v[3]}|
@@ -81,7 +80,7 @@ while True:
 			continue
 
 	v[oLoc] = 'o'
-	locations.pop(lp.indexOf(locations, oLoc))
+	locations.remove(oLoc)
 	
 	board = f'''
 	|{v[1]}|{v[2]}|{v[3]}|
