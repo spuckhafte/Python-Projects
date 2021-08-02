@@ -12,17 +12,6 @@ def reverse_list(lstVariable):
 	except:
 		print("You can only reverse a 'list' with this function.")
 
-#modifies your own list by reversing it elements
-def reverse_list_mod(lstVariable):
-	try:
-		element_removing_variable = 1
-		for list_element in lstVariable:
-			lstVariable.insert(0,list_element)
-			lstVariable.pop(element_removing_variable)
-			element_removing_variable = element_removing_variable+1
-	except:
-		print("You can only reverse a 'list' with this function.")
-
 #returns reveresed value of the string provided
 def reverse_str(strVariable):
 	try:
