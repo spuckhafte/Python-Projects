@@ -59,12 +59,12 @@ while i < len(names):
         ''')
     i += 1
 
-time.sleep(1)
+time.sleep(3)
 
 print('-------------------------------------------\nInformation of all NEOs')
 time.sleep(0.5)
 print('\nfetching...')
-time.sleep(3)
+time.sleep(1)
 
 i = 0
 while i < len(names):
@@ -77,4 +77,3 @@ while i < len(names):
     Miss Distance: {miss[i]} km
     ''')
     i += 1
-    time.sleep((0.5))
